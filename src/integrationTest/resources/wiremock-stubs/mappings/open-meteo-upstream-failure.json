@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/meteo/forecast",
+    "queryParameters": {
+      "latitude": { "equalTo": "10.0" },
+      "longitude": { "equalTo": "20.0" }
+    }
+  },
+  "response": {
+    "status": 503,
+    "headers": { "Content-Type": "application/json" },
+    "body": "{\"error\": \"Service Unavailable\"}"
+  }
+}

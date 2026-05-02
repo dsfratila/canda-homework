@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/geo/geocode/search",
+    "queryParameters": {
+      "text": {
+        "equalTo": "Bucharest"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "results": [
+        {
+          "lat": 44.43,
+          "lon": 26.1,
+          "city": "Bucharest",
+          "formatted": "Bucharest, Romania"
+        }
+      ]
+    }
+  }
+}

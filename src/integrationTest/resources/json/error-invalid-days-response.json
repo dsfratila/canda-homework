@@ -1,0 +1,4 @@
+{
+  "error": "Bad Request",
+  "message": "Days parameter must be between 1 and 10."
+}

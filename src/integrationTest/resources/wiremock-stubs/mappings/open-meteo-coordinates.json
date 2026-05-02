@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/meteo/forecast",
+    "queryParameters": {
+      "latitude": {
+        "equalTo": "52.52"
+      },
+      "longitude": {
+        "equalTo": "13.41"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "latitude": 52.52,
+      "longitude": 13.41,
+      "current": {
+        "time": "2026-05-01T16:00",
+        "temperature_2m": 22.5,
+        "weather_code": 0
+      },
+      "daily": {
+        "time": ["2026-05-01"],
+        "temperature_2m_max": [25.0],
+        "temperature_2m_min": [15.0],
+        "precipitation_probability_max": [10.0],
+        "weather_code": [0]
+      }
+    }
+  }
+}

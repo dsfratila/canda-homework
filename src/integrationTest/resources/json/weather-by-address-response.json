@@ -1,0 +1,23 @@
+{
+  "location": {
+    "name": "Bucharest, Romania",
+    "lat": 44.43,
+    "lon": 26.1
+  },
+  "current": {
+    "temperature": 20.0,
+    "humidity": "${json-unit.ignore}",
+    "wind_speed": "${json-unit.ignore}",
+    "condition": "${json-unit.ignore}",
+    "timestamp": "${json-unit.ignore}"
+  },
+  "forecast": [
+    {
+      "date": "2026-05-01",
+      "min_temp": 10.0,
+      "max_temp": 22.0,
+      "condition": "${json-unit.ignore}",
+      "precipitation_chance": 5.0
+    }
+  ]
+}

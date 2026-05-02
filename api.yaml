@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  title: Weather API
+  description: >
+    REST API that returns current weather and multi-day forecast
+    for a location specified either by address or coordinates.
+  version: 1.0.0
+
+servers:
+  - url: https://weather.canda.com
+
+paths:
+  /weather:
+    get:
+      summary: Get current weather and forecast
+      description: >
+        Returns current weather and multi-day forecast.
+        You must provide either:
+        - `address`
+        OR
+        - `lat` and `lon`
+      parameters:
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          example: "1600 Amphitheatre Parkway, Mountain View, CA"
+
+        - name: lat
+          in: query
+          required: false
+          schema:
+            type: number
+            format: float
+          example: 37.422
+
+        - name: lon
+          in: query
+          required: false
+          schema:
+            type: number
+            format: float
+          example: -122.084
+
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days (1–10)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 10
+            default: 5
+
+      responses:
+        "200":
+          description: Successful weather response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WeatherResponse"
+
+        "400":
+          description: Invalid request (missing or conflicting parameters)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    WeatherResponse:
+      type: object
+      properties:
+        location:
+          type: object
+          properties:
+            name:
+              type: string
+            lat:
+              type: number
+            lon:
+              type: number
+
+        current:
+          $ref: "#/components/schemas/CurrentWeather"
+
+        forecast:
+          type: array
+          items:
+            $ref: "#/components/schemas/ForecastDay"
+
+    CurrentWeather:
+      type: object
+      properties:
+        temperature:
+          type: number
+          example: 22.5
+        humidity:
+          type: number
+          example: 60
+        wind_speed:
+          type: number
+          example: 5.2
+        condition:
+          type: string
+          example: "Partly Cloudy"
+        timestamp:
+          type: string
+          format: date-time
+
+    ForecastDay:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        min_temp:
+          type: number
+        max_temp:
+          type: number
+        condition:
+          type: string
+        precipitation_chance:
+          type: number
+          example: 0.2
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string

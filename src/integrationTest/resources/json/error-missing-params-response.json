@@ -1,0 +1,4 @@
+{
+  "error": "Bad Request",
+  "message": "You must provide either an address or both lat and lon."
+}

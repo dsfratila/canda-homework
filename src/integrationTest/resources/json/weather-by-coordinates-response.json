@@ -1,0 +1,23 @@
+{
+  "location": {
+    "name": "${json-unit.ignore}",
+    "lat": 52.52,
+    "lon": 13.41
+  },
+  "current": {
+    "temperature": 22.5,
+    "humidity": "${json-unit.ignore}",
+    "wind_speed": "${json-unit.ignore}",
+    "condition": "Clear sky",
+    "timestamp": "${json-unit.ignore}"
+  },
+  "forecast": [
+    {
+      "date": "2026-05-01",
+      "min_temp": 15.0,
+      "max_temp": 25.0,
+      "condition": "Clear sky",
+      "precipitation_chance": 10.0
+    }
+  ]
+}
